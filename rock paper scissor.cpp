@@ -37,6 +37,15 @@ void showRoundResult(int i, int playerChoice, int computerChoice, string winner)
     cout << "\nRound winner : " << winner << "\n";
     cout << "____________________________________________\n\n\n";
 }
+
+int readPlayerChoice()
+{
+    int playerChoice;
+    cout << "Your choice : [1]:Stone, [2]:Paper, [3]:Scissors ? ";
+    cin >> playerChoice;
+    
+    return playerChoice;
+}
 void startGame()
 {
 
@@ -55,8 +64,7 @@ void startGame()
         while(x--)
         {
             cout << "\nRound [" << i << "] begins:\n\n";
-            cout << "Your choice : [1]:Stone, [2]:Paper, [3]:Scissors ? ";
-            cin >> playerChoice;
+            playerChoice = readPlayerChoice();
             string winner;
             computerChoice = randomNumber(1, 3);
             if(playerChoice == computerChoice)
