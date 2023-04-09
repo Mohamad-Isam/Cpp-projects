@@ -28,16 +28,21 @@ int readHowManyRounds()
     return n;
 }
 
-void showRoundResult()
+void showRoundResult(int i, int playerChoice, int computerChoice, string winner)
 {
-
+    vector<string> v = {"Stone", "Paper", "Scissors"};
+    cout << "____________Round [" << i++ << "]_____________\n\n";
+    cout << "Player Choice : " << v[playerChoice - 1];
+    cout << "\nComputer Choice : " << v[computerChoice - 1];
+    cout << "\nRound winner : " << winner << "\n";
+    cout << "____________________________________________\n\n\n";
 }
 void startGame()
 {
 
     char choice;
     int playerChoice, computerChoice;
-    vector<string> v = {"Stone", "Paper", "Scissors"};
+
     do
     {
         system("cls");
@@ -72,11 +77,7 @@ void startGame()
                 losses++;
                 system("color 4F");
             }
-            cout << "____________Round [" << i++ << "]_____________\n\n";
-            cout << "Player Choice : " << v[playerChoice - 1];
-            cout << "\nComputer Choice : " << v[computerChoice - 1];
-            cout << "\nRound winner : " << winner << "\n";
-            cout << "____________________________________________\n\n\n";
+            showRoundResult(i++, playerChoice, computerChoice, winner);
 
         }
         gameResult(wins, draws, losses);
