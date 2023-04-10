@@ -1,3 +1,8 @@
+- //I used this without OOP so I can understand functional programming 
+- //I'll make another one with OOP.
+
+
+
 #include<bits/stdc++.h>
 using namespace std;
 
