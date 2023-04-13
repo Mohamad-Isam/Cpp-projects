@@ -198,19 +198,47 @@ stGameInfo playBattle()
             lossScreen();
         }
     }
-     cout << "Right answers  = " << gameInfo.rightAnswers;
-     cout << "\nWrong answers  = " << gameInfo.wrongAnswers;
     return gameInfo;
+}
+void viewBattleResult(stGameInfo gameInfo)
+{
+    cout << "\n\n____________________________________\n\n";
+    if(gameInfo.rightAnswers >= gameInfo.wrongAnswers)
+    {
+        winScreen();
+        cout << "  Final Result is PASS :-)";
+    }
+    else
+    {
+        lossScreen();
+        cout << "  Final Result is FAIL :-(";
+    }
+    cout << "\n\n____________________________________\n\n";
+}
+
+void viewFinalResults(stGameInfo gameInfo)
+{
+    cout << "Number of questions: " << gameInfo.numberOfQuestions << '\n';
+    cout << "Question Level\t: " << gameInfo.questionLevel << '\n';
+    cout << "OP type\t\t: " << gameInfo.mathOperation << '\n';
+    cout << "Number of right answers : " <<  gameInfo.rightAnswers << '\n';
+    cout << "Number of wrong answers : " << gameInfo.wrongAnswers << '\n';
+    cout << "_________________________________________\n";
 }
 
 void playGame()
 {
+    char playerChoice = 'y';
     do
     {
         clearScreen();
         stGameInfo gameInfo = playBattle();
-        
-        
+        viewBattleResult(gameInfo);
+        viewFinalResults(gameInfo);
+
+        cout << "do you want to play again ? Y / N ? ";
+        cin >> playerChoice;
+
     }while(playerChoice == 'y' || playerChoice == 'Y');
 }
 
